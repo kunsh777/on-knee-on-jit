@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yay!</title>
+  <style>
+    body {
+      background-color: #f8c8c8;
+      font-family: Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      padding-top: 25%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Yay!</h1>
+  <script>
+    localStorage.setItem('noClicks', 0);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+  </script>
+</body>
+</html>
+
+

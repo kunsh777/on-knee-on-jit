@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Will You Be My Wife?</title>
+  <style>
+    body {
+      background-color: #f8c8c8;
+      font-family: Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      padding-top: 20%;
+    }
+    button {
+      background-color: white;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="message">You tryna be my girl?</h1>
+  <a href="hell-yeah-2.html"><button onclick="resetNo()">Yes</button></a>
+  <button onclick="handleNo()">No</button>
+
+  <script>
+    // Reset if we came here fresh (i.e., not from "No")
+    if (!sessionStorage.getItem('cameFromNo')) {
+      localStorage.setItem('noClicks', 0);
+    }
+    sessionStorage.removeItem('cameFromNo');
+
+    let noClicks = parseInt(localStorage.getItem('noClicks')) || 0;
+
+    if (noClicks >= 5) {
+      document.getElementById('message').textContent = "Bitch fucking click yes already";
+    }
+
+    function handleNo() {
+      noClicks++;
+      localStorage.setItem('noClicks', noClicks);
+      sessionStorage.setItem('cameFromNo', true);
+      if (noClicks >= 5) {
+        location.reload(); // Show the angry message
+      } else {
+        window.location.href = "hell-yeah-3.html";
+      }
+    }
+
+    function resetNo() {
+      localStorage.setItem('noClicks', 0);
+    }
+  </script>
+</body>
+</html>
